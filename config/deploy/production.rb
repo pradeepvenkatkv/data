@@ -22,9 +22,9 @@ server '3.19.228.79', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
 # you can see them in [net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start)
 # set it globally
  set :ssh_options, {
-   # keys: %w(/home/rlisowski/.ssh/id_rsa),
+   keys: %w(/home/sathishkumar/.ssh/id_rsa),
    # keys: %w(~/.ssh/parag.pem),
-   keys: %w(/home/sathishkumar/bru.pem),
+   # keys: %w(/home/sathishkumar/bru.pem),
    forward_agent: false,
    auth_methods: %w(publickey password)
  }
