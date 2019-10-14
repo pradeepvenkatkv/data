@@ -1,0 +1,94 @@
+<%= link_to "Apply Leave", new_leave_management_path, :class => 'btn btn-primary' ,:style => "margin-top: 15px;"%>
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>LEAVE APPLICATIONS</h2>
+        <div class="rgt" style ="float:right ;" >
+          <button class="btn btn-primary">
+            Total No of Leaves Taken:
+              <%= @leave_details.count %>
+          </button>
+        </div>
+        
+        <table class="responstable">
+          <thead>
+            <tr>
+              
+              <td>
+                <b>
+                  LEAVE TYPE
+                </b>
+              </td>
+              <td>
+                <b>
+                  START DATE
+                </b>
+              </td>
+              <td>
+                <b>
+                  END DATE
+                </b>
+              </td>
+              <td>
+                <b>
+                  NO OF DAYS
+                </b>
+              </td>
+              <td>
+                <b>
+                  REASON
+                </b>
+              </td>
+              <td>
+                <b>
+                  CREATED AT
+                </b>
+              </td>
+              
+            </tr>
+            <% @leave_details.each do |leave| %>
+              <tr>
+                <td>
+                  <%= leave.leave_type %>
+                </td>
+                <td>
+                  <%= leave.start_date %>
+                </td>
+                <td>
+                  <%= leave.end_date %>
+                </td>
+                
+                <td>
+                  <%= (leave.end_date.to_date - leave.start_date.to_date).to_i %>
+                </td>
+
+                <td>
+                  <%= leave.reason %>
+                </td>
+                
+                <td>
+                  <%= leave.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %>
+                </td>
+                
+              </tr>
+            <% end %>  
+          </thead>
+        </table>
+        <nav class="pagination" style="text-align:center;">
+          <%= paginate @leave_details %>
+        </nav>
+        
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

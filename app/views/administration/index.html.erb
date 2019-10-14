@@ -1,0 +1,83 @@
+<%= link_to "Stationary Request", new_administration_path, :class => 'btn btn-primary' ,:style => "margin-top: 15px;"%>
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>STATIONARY </h2>
+        <div class="rgt" style ="float:right ;" >
+         
+        </div>
+        
+        <table class="responstable">
+          <thead>
+            <tr>
+              
+              <td>
+                <b>
+                  STATIONARY TYPE
+                </b>
+              </td>
+              <td>
+                <b>
+                  CATEGORY
+                </b>
+              </td>
+              <td>
+                <b>
+                  PRODUCT
+                </b>
+              </td>
+              <td>
+                <b>
+                  QUNATITY
+                </b>
+              </td>
+              
+              <td>
+                <b>
+                  REQUEST RAISED AT
+                </b>
+              </td>
+              
+            </tr>
+            <% @stationary.each do |stationary| %>
+              <tr>
+                <td>
+                  <%= stationary.stationary_type %>
+                </td>
+                <td>
+                  <%= stationary.category %>
+                </td>
+                <td>
+                  <%= stationary.product %>
+                </td>
+
+                <td>
+                  <%= stationary.quantity %>
+                </td>
+                
+                <td>
+                  <%= stationary.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %>
+                </td>
+                
+              </tr>
+            <% end %>  
+          </thead>
+        </table>
+        <nav class="pagination" style="text-align:center;">
+          <%= paginate @stationary_details %>
+        </nav>
+        
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

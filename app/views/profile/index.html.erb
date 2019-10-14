@@ -1,0 +1,75 @@
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+      <% if @profile.present? %>  
+        <div class="" style ="text-align: center;" ><h2>EMPLOYEE DETAILS</h2>
+        <div class="rgt" style ="float:right ;" >
+          <%= link_to "Edit", edit_profile_path(:id=>@profile.id), :class => 'btn btn-primary', :style => "margin-top: -39px;margin-right: 176px;" %>
+        </div>  
+            
+      
+        <table class="responstable" style ="text-align: center;width: 82%;margin-left: 12%;">
+            
+          <tr>
+            <td>Employee ID</td>
+            <td><%= @profile.employee_number %></td>
+          </tr>
+          <tr>
+            <td>Employee Name</td>
+            <td><%= @profile.name.upcase %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= @profile.email %></td>
+          </tr>
+          <tr>
+            <td>Contact Number</td>
+            <td><%= @profile.contact_number %></td>
+          </tr>
+          <tr>
+            <td>Date of Joining</td>
+            <td><%= @profile.date_of_joining %></td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td><%= @profile.date_of_birth %></td>
+          </tr>
+           <tr>
+            <td>Job Title</td>
+            <td><%= @profile.job_title %></td>
+          </tr>
+          <tr>
+            <td> Reporting Manager</td>
+            <td><%= @profile.reporting_manager %></td>
+          </tr>
+           <tr>
+            <td>Address</td>
+            <td><%= @profile.address %></td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td><%= @profile.status %></td>
+          </tr>
+          <tr>
+            <td>Created At</td>
+            <td><%= @profile.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %></td>
+          </tr>
+         
+        </table>
+        
+      <% else %>
+        <b> No Employee Details found </b>
+        </br> 
+      <% end %>  
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

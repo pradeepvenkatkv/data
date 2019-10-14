@@ -1,0 +1,126 @@
+<%= link_to "Add New Employee", new_profile_path, :class => 'btn btn-primary' ,
+ :style => "margin-top: 15px;"%>
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>EMPLOYEE DETAILS</h2>
+        <div class="rgt" style ="float:right ;" >
+          <button class="btn btn-primary" style="margin-bottom: 14px;">
+            Total Employees:
+              <%= @profile_count %>
+          </button>
+          <%=  link_to("Download Employees ",download_employees_admin_index_path(format: "csv"), :class => "btn btn-primary", :style => "margin-bottom: 14px;") %>
+        </div>
+        
+        <table class="responstable">
+          <thead>
+            <tr>
+              <td>
+                <b>
+                  #
+                </b>
+              </td>
+              <td>
+                <b>
+                  Employee ID
+                </b>
+              </td>
+              <td>
+                <b>
+                  Employee Name
+                </b>
+              </td>
+              <td>
+                <b>
+                  Joining Date
+                </b>
+              </td>
+              <td>
+                <b>
+                  Mobile Number
+                </b>
+              </td>
+              <td>
+                <b>
+                  Email Id
+                </b>
+              </td>
+              <td>
+                <b>
+                  Gender
+                </b>
+              </td>
+
+              <td>
+                <b>
+                  Status
+                </b>
+              </td>
+              <td>
+                <b>
+                  Created At
+                </b>
+              </td>
+              <td>
+                <b>
+                  Actions 
+                </b>
+              </td>
+            </tr>
+            <% @all_users.each_with_index do |user, index| %>
+              <tr>
+                <td>
+                  <%= index %>
+                </td>
+                <td>
+                  <%= user.employee_number %>
+                </td>
+                <td>
+                  <%= user.name.upcase %>
+                </td>
+                <td>
+                  <%= user.date_of_joining %>
+                </td>
+                <td>
+                  <%= user.contact_number %>
+                </td>
+                <td>
+                  <%= mail_to "#{user.email}" %>
+                </td>
+                <td>
+                  <%= user.gender %>
+                </td>
+                <td>
+                  <%= user.status %>
+                </td>
+                <td>
+                  <%= user.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %> 
+                </td>
+                <td>
+                  <%= link_to "Edit", profile_edit_admin_index_path(:id=>user.id), :class => 'btn btn-primary' %>
+                  </br>
+                  <%= link_to "Delete",  profile_delete_admin_index_path(:id=>user.id),   data: { confirm: 'Are you sure?' },:class => 'btn btn-primary' %>
+                 
+                </td>
+               
+              </tr>
+            <% end %>
+          </thead>
+        </table>
+        <nav class="pagination" style="text-align:center;">
+          <%= paginate @all_users %>
+        </nav>
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

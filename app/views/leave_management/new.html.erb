@@ -1,0 +1,56 @@
+<%= simple_form_for(LeaveManagement.new, :url => "/leave_management/create", :html => { :method => :post}) do |f| %>
+  <%= f.error_notification %>
+  <div class="container" style ="text-align:center ;margin-top:40px;">
+  <div class="" style ="text-align: center;" ><h2>LEAVE APPLICATION</h2> 
+    <div class="form-group center">
+      <%= f.text_field :employee_number,:value => current_user.profile.employee_number, readonly: true, class: "form-control-new"  %>
+    </div> 
+    <div class="form-group center">
+      <%= f.text_field :name,:value => current_user.profile.name.upcase, readonly: true, class: "form-control-new"  %>
+    </div> 
+    <div class="form-group center"> 
+      <%= f.select :leave_type,  options_for_select(["Privilege/Sick/Casual Leave","Compensatory Off","Optional Holiday","other"]), {:prompt=>"Select Leave Type"},class: "form-control-new" %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_field :start_date, :required=>true, :id => "datepicker", class: "form-control-new",:placeholder => "From Date" %>
+    </div> 
+
+    <div class="form-group center">
+      <%= f.text_field :end_date, :required=>true,:id => "datepicker1", class: "form-control-new",:placeholder => "To Date"  %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_area :reason, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"}, class: "form-control-new",cols: 55, rows: 5,:required=>true, :placeholder=>"Specify Reason" %>
+    </div>
+    
+      
+      
+      <div class="clear"></div>
+    </div>
+  </div>  
+  </div>
+  
+  <div class="form-group center" style ="text-align:center ;">
+    <button class="btn btn-primary" type="submit">
+      <% if current_page?(action: 'new') %>
+        Apply Leave 
+      <% else %>
+        Cancel
+      <% end %>
+    </button>
+  </div>
+  <div class="clear"></div>
+<% end %>
+
+<script>
+$('#datepicker').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+
+$('#datepicker1').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+</script>

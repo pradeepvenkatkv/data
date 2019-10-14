@@ -1,0 +1,68 @@
+<%= form_for Profile.new, :url => "/profile/update", :method => 'post' do |f| %>
+  <div class="container" style ="text-align:center ;margin-top:40px;">
+  <div class="" style ="text-align: center;" ><h2>EDIT PROFILE </h2>  
+    <div class="form-group center">
+      <%= f.text_field :name, :placeholder => "Full Name", class: "form-control-new",:value=>current_user.profile.name, readonly: true %>
+      <%= f.hidden_field :profile_id, label: false,:value=>@profile.id %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_field :email, :placeholder => "Email", class: "form-control-new",:value=>current_user.profile.email, readonly: true %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_field :contact_number, :placeholder => "Contact Number", required: true, label: false,class: "form-control-new",:value=>@profile.contact_number %>
+    </div>
+    <div class="form-group center">
+      <%= f.select :gender,  options_for_select(["Male","Female"]), {},:value=>@profile.gender, class: "form-control-new"%>
+    </div>
+
+    <div class="form-group center">
+      <%= f.text_field :emergency_contact,class: "form-control-new",:value=>@profile.emergency_contact, required: true, label: false%>
+    </div>
+    
+    
+    <div class="form-group center">
+      <%= f.text_field :date_of_joining, class: "form-control-new", :value=>current_user.profile.date_of_joining, readonly: true%>
+    </div> 
+
+    <div class="form-group center">
+      <%= f.text_field :date_of_birth, class: "form-control-new",:value=>current_user.profile.date_of_birth, readonly: true %>
+    </div>             
+    
+    <div class="form-group center">
+      <%= f.text_area :address,:placeholder => "Address", required: true, label: false,class: "form-control-new",:value=>@profile.address  %>
+    </div>
+
+    
+
+    </br>  
+      <div class="clear"></div>
+    </div>
+  </div>  
+  </div>
+  
+  <div class="form-group center" style ="text-align:center ;">
+    <button class="btn btn-primary" type="submit">
+      <% if current_page?(action: 'new') %>
+        Add Employee
+      <% else %>
+        Update Profile
+      <% end %>
+    </button>
+  </div>
+  <div class="clear"></div>
+<% end %>
+
+<script>
+$('#datepicker').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+
+$('#datepicker1').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+</script>
+

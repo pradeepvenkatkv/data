@@ -1,0 +1,23 @@
+<div class="container">
+
+<div class = "background" style ="position:absolute ;"><%= image_tag('logo.jpg') %>
+
+</div>  
+  <div class="authform" style ="position:relative;">
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name ), :html => { :role => 'form'}) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, :placeholder => "Email", :autofocus => true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        
+        <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %>
+      </div>
+        <%= f.submit 'Sign in', :class => 'button right' %>
+        <%- if devise_mapping.recoverable? %>
+          <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
+        <% end -%>
+    <% end %>
+  </div>
+</div>
+

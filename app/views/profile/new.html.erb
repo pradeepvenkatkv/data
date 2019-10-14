@@ -1,0 +1,76 @@
+<%= simple_form_for(Profile.new, :url => "/profile/create", :html => { :method => :post}) do |f| %>
+  <%= f.error_notification %>
+  <div class="container" style ="text-align:center ;margin-top:40px;">
+  <div class="" style ="text-align: center;" ><h2>NEW EMPLOYEE </h2>  
+    <div class="form-group center">
+      <%= f.input :name, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"}, :required=>true, :placeholder=>"Full Name as per SSC" %>
+    </div>
+    <div class="form-group center">
+      <%= f.input :email, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"}, :required=>true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}',:placeholder=>"Email" %>
+    </div>
+    <div class="form-group center">
+      <%= f.number_field :contact_number, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"}, class: "form-control-new",:required=>true, :placeholder=>"Contact Number" %>
+    </div>
+    <div class="form-group center">
+      <%= f.select :gender,  options_for_select(["Male","Female"]), {:prompt=>"Select Gender"},class: "form-control-new" %>
+    </div>
+
+    <div class="form-group center">
+      <%= f.number_field :emergency_contact, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"},class: "form-control-new", :required=>true, :placeholder=>"Emergency Contact" %>
+    </div>
+    
+    
+    <div class="form-group center">
+      <%= f.text_field :date_of_joining, :required=>true, :id => "datepicker", class: "form-control-new",:placeholder => "Date of Joining" %>
+    </div> 
+
+    <div class="form-group center">
+      <%= f.text_field :date_of_birth, :required=>true,:id => "datepicker1", class: "form-control-new",:placeholder => "Date of Birth"  %>
+    </div>             
+    
+    
+    <div class="form-group center">
+      <%= f.select :job_title, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], {prompt: 'Select Manager'},class: "form-control-new", :required=>true %>
+    </div>  
+    <div class="form-group center">
+      <%= f.select :reporting_manager, options_for_select(["Aathresh","Vinay"]), {prompt: 'Select Manager'}, class: "form-control-new", :required=>true%>
+    </div>
+    
+    
+    <div class="form-group center">
+      <%= f.text_area :address, label: false, :input_html => { :style => "border: 1px solid #cccccc; border-radius: 4px; width: 30%; transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; height: 34px;    padding: 6px 12px;font-size: 14px;"}, :required=>true, class: "form-control-new",cols: 55, rows: 5,:required=>true, :placeholder=>"Address" %>
+    </div>
+      
+      
+      <div class="clear"></div>
+    </div>
+  </div>  
+  </div>
+  
+  <div class="form-group center" style ="text-align:center ;">
+    <button class="btn btn-primary" type="submit">
+      <% if current_page?(action: 'new') %>
+        Add Employee
+      <% else %>
+        Update
+      <% end %>
+    </button>
+  </div>
+  <div class="clear"></div>
+<% end %>
+
+<script>
+$('#datepicker').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+
+$('#datepicker1').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+</script>
+
+

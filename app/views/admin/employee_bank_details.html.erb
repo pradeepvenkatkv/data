@@ -1,0 +1,114 @@
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>BANK DETAILS</h2>
+        <div class="rgt" style ="float:right ;" >
+          <button class="btn btn-primary" style="margin-bottom: 14px;">
+            Total Accounts:
+              <%= @bank_details_count %>
+          </button>
+          <%=  link_to("Download Bank Accounts ",download_bank_accounts_admin_index_path(format: "csv"), :class => 'btn btn-primary', :style => "margin-bottom: 14px;") %>
+        </div>
+        
+        <table class="responstable">
+          <thead>
+            <tr>
+              <td>
+                <b>
+                  #
+                </b>
+              </td>
+              <td>
+                <b>
+                  Employee ID
+                </b>
+              </td>
+              <td>
+                <b>
+                  Full Name
+                </b>
+              </td>
+              <td>
+                <b>
+                  Bank Name
+                </b>
+              </td>
+              <td>
+                <b>
+                  Account Number
+                </b>
+              </td>
+              <td>
+                <b>
+                  Bank Branch
+                </b>
+              </td>
+              <td>
+                <b>
+                  IFSC Code
+                </b>
+              </td>
+              <td>
+                <b>
+                  Status
+                </b>
+              </td>
+              <td>
+                <b>
+                  CREATED AT
+                </b>
+              </td>
+            </tr>
+            <% @bank_details.each_with_index do |bank, index| %>
+              <% profile = bank.profile %>
+              <tr>
+                <td>
+                  <%= index %>
+                </td>
+                <td>
+                  <%= profile.employee_number if profile.present? %>
+                </td>
+                
+                <td>
+                  <%= bank.full_name %>
+                </td>
+                <td>
+                  <%= bank.bank_name %>
+                </td>
+                <td>
+                  <%= bank.account_number %>
+                </td>
+                
+                <td>
+                  <%= bank.branch_name %>
+                </td>
+                <td>
+                  <%= bank.ifsc %>
+                </td>
+                <td>
+                  <%= bank.status %>
+                </td>
+                <td>
+                  <%= bank.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %>
+                </td>
+              </tr>
+            <% end %>
+          </thead>
+        </table>
+        <nav class="pagination" style="text-align:center;">
+          <%= paginate @bank_details %>
+        </nav>
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

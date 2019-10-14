@@ -1,0 +1,55 @@
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>BANK DETAILS</h2>
+            
+      <% if @bank_details.present? %>
+          <table class="responstable" style ="text-align: center;width: 82%;margin-left: 12%;">
+              
+            <tr>
+              <td>Employee ID</td>
+              <td><%= @bank_details.profile.employee_number %></td>
+            </tr>
+            <tr>
+              <td>Employee Name</td>
+              <td><%= @bank_details.full_name.upcase %></td>
+            </tr>
+            <tr>
+              <td>Bank Name</td>
+              <td><%= @bank_details.bank_name.upcase %></td>
+            </tr>
+            <tr>
+              <td>Account Number</td>
+              <td><%= @bank_details.account_number %></td>
+            </tr>
+            <tr>
+              <td>IFSC Code</td>
+              <td><%= @bank_details.ifsc %></td>
+            </tr>
+            <tr>
+              <td>Branch Name</td>
+              <td><%= @bank_details.branch_name.upcase %></td>
+            </tr>
+            <tr>
+              <td>Created At</td>
+              <td><%= @bank_details.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %></td>
+            </tr>
+          </table>
+        
+      <% else %>
+        <b> No Bank Details found </b>
+        </br> 
+        <%= link_to "Add Bank Details", new_bank_account_path, :class => 'btn btn-primary' %>
+      <% end %>  
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

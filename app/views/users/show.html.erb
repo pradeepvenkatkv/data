@@ -1,0 +1,59 @@
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        
+        <h2>EMPLOYEE DETAILS</h2>
+        <br/>
+        <div class="row-fluid" style="border:1px solid #ededed;border-radius:6px; padding-left:13px; text-align: center; line-height: 30px;">
+          
+        </div>
+        <br/>
+        <br/>
+        <table class="tbl-summary">
+          <thead>
+            <tr>
+              <td>
+                <b>
+                  EMAIL
+                </b>
+              </td>
+              <td>
+                <b>
+                  MOBILE NUMBER
+                </b>
+              </td>
+              <td>
+                <b>
+                  CREATED AT
+                </b>
+              </td>
+            </tr>
+            <% @user.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.email %>
+                </td>
+                <td>
+                  <%= user.contact_number %>
+                </td>
+                <td>
+                  <%= user.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %>
+                </td>
+              </tr>
+            <% end %>
+          </thead>
+        </table>
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

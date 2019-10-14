@@ -1,0 +1,39 @@
+<%# navigation styled for Bootstrap 3.0 %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <% if !current_user.present?  %>
+      <div class="header topnav">
+        <%= image_tag("logopi.jpg", :size => "100x75",:alt => "paraginfotech" ,:style => "float: left; padding-top: 14px; padding-left: 13px;") %> 
+        <span>OUR SPACE</span>
+      </div>
+    <% else %>
+    <% end %>  
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <% if current_user.present? && current_user.email.eql?("aathresh@paraginfotech.com") %>
+        <div><%= link_to 'Employee Details', admin_index_path, class: 'navbar-brand' ,:style => "margin-left: 27px; "%>
+        <%= link_to 'Bank Accounts', employee_bank_details_admin_index_path, class: 'navbar-brand' %>
+        <%= link_to 'Leave Applications', leave_application_admin_index_path, class: 'navbar-brand' %>
+        </div>  
+      <% elsif %>
+        <% current_user.present? %>
+          <%= link_to 'My Profile', profile_index_path, class: 'navbar-brand', :style => "margin-left: 27px; " %>
+          <%= link_to 'Leave Management ', leave_management_index_path, class: 'navbar-brand' %>
+          <%= link_to 'Bank Account', bank_account_index_path, class: 'navbar-brand' %>
+          <%= link_to 'Administration', administration_index_path, class: 'navbar-brand' %>
+      <else> 
+           
+      <% end %>  
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav" style="float:right;">
+        <%= render 'layouts/navigation_links' %>
+      </ul>
+    </div>
+  </div>
+</nav>

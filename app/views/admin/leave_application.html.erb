@@ -1,0 +1,127 @@
+<div class="main">
+  <div class="wide_cont custom-background" style="background:transparent;">
+    <div class="doc-main">
+      <div class="doc-content">
+        <div class="" style ="text-align: center;" ><h2>LEAVE APPLICATIONS</h2>
+        <div class="rgt" style ="float:right ;" >
+        </div>
+        
+        <table class="responstable">
+          <thead>
+            <tr>
+              <td>
+                <b>
+                  EMPLOYEE ID
+                </b>
+              </td>
+              <td>
+                <b>
+                  EMPLOYEE NAME
+                </b>
+              </td>
+              <td>
+                <b>
+                  LEAVE TYPE
+                </b>
+              </td>
+              <td>
+                <b>
+                  START DATE
+                </b>
+              </td>
+              <td>
+                <b>
+                  END DATE
+                </b>
+              </td>
+              <td>
+                <b>
+                  NO OF DAYS
+                </b>
+              </td>
+              <td>
+                <b>
+                  REASON
+                </b>
+              </td>
+              <td>
+                <b>
+                  TOTAL N0: OF LEAVE'S TAKEN
+                </b>
+              </td>
+              <td>
+                <b>
+                  CREATED AT
+                </b>
+              </td>
+              <td>
+                <b>
+                  ACTIONS
+                </b>
+              </td>
+            </tr>
+            <% if @leave_details.present? %>
+              <% @leave_details.each do |leave| %>
+                <% profile = leave.profile %>
+                <tr>
+                  <td>
+                    <%= profile.employee_number %>
+                  </td>
+                  <td>
+                    <%= profile.name %>
+                  </td>
+                  <td>
+                    <%= leave.leave_type %>
+                  </td>
+                  <td>
+                    <%= leave.start_date %>
+                  </td>
+                  <td>
+                    <%= leave.end_date %>
+                  </td>
+                  
+                  <td>
+                    <%= (leave.end_date.to_date - leave.start_date.to_date).to_i %>
+                  </td>
+
+                  <td>
+                    <%= leave.reason %>
+                  </td>
+                  <td>
+                    <%= profile.leave_management.count %>
+                  </td>
+                  
+                  <td>
+                    <%= leave.created_at.to_datetime.strftime("%d/%m/%Y %I:%M:%S %p") %>
+                  </td>
+                  <td>
+                    <%= link_to "Approve", approve_leave_admin_index_path(:id=>leave.id), :class => 'btn btn-primary' %>
+                    <%= link_to "Reject",  reject_leave_admin_index_path(:id=>leave.id),   data: { confirm: 'Are you sure?' },:class => 'btn btn-primary' %>
+                   
+                  </td>
+                </tr>
+
+
+
+              <% end %>
+            <% else %>
+              <b> No Details found </b>
+            <% end %> 
+          </thead>
+        </table>
+        <nav class="pagination" style="text-align:center;">
+          <%= paginate @leave_details %>
+        </nav>
+       
+     
+    </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
+

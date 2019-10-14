@@ -1,0 +1,73 @@
+<%= form_for Profile.new, :url => update_profile_admin_index_path, :method => 'post' do |f| %>
+  <div class="container" style ="text-align:center ;margin-top:40px;">
+  <div class="" style ="text-align: center;" ><h2>EDIT EMPLOYEE </h2>  
+    <div class="form-group center">
+      <%= f.text_field :name, :placeholder => "Full Name", required: true, label: false,class: "form-control-new",:value=>@profile.name %>
+      <%= f.hidden_field :profile_id, label: false,:value=>@profile.id %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_field :email, :placeholder => "First Name", required: true, label: false,class: "form-control-new",:value=>@profile.email %>
+    </div>
+    <div class="form-group center">
+      <%= f.text_field :contact_number, :placeholder => "Contact Number", required: true, label: false,class: "form-control-new",:value=>@profile.contact_number %>
+    </div>
+    <div class="form-group center">
+      <%= f.select :gender,  options_for_select(["Male","Female"]), {},:value=>@profile.gender, class: "form-control-new"%>
+    </div>
+
+    <div class="form-group center">
+      <%= f.text_field :emergency_contact, :placeholder => "Emergency Number", required: true, label: false,class: "form-control-new",:value=>@profile.emergency_contact %>
+    </div>
+    
+    
+    <div class="form-group center">
+      <%= f.text_field :date_of_joining, :required=>true, :id => "datepicker", class: "form-control-new", :value=>@profile.date_of_joining,:placeholder => "Date of Joining" %>
+    </div> 
+
+    <div class="form-group center">
+      <%= f.text_field :date_of_birth, :required=>true,:id => "datepicker1", class: "form-control-new",:value=>@profile.date_of_birth, :placeholder => "Date of Birth"  %>
+    </div>             
+    
+    <div class="form-group center">
+      <%= f.select :job_title, options_for_select(["CSE","Developer"]), {}, :value=>@profile.job_title, class: "form-control-new" %>
+    </div>
+    <div class="form-group center">
+      <%= f.select :reporting_manager, options_for_select(["Aathresh","Vinay"]), {}, :value=>@profile.reporting_manager, class: "form-control-new"%>
+    </div>
+    
+    <div class="form-group center">
+      <%= f.text_field :address, :placeholder => "Address", required: true, label: false,class: "form-control-new",:value=>@profile.address %>
+    </div>
+      
+      
+      <div class="clear"></div>
+    </div>
+  </div>  
+  </div>
+  
+  <div class="form-group center" style ="text-align:center ;">
+    <button class="btn btn-primary" type="submit">
+      <% if current_page?(action: 'new') %>
+        Add Employee
+      <% else %>
+        Update Employee
+      <% end %>
+    </button>
+  </div>
+  <div class="clear"></div>
+<% end %>
+
+<script>
+$('#datepicker').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+
+$('#datepicker1').datepicker({
+  format: 'yyyy-mm-dd',
+  todayHighlight:'TRUE',
+  autoclose: true,
+  });
+</script>
+

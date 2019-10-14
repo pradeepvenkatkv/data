@@ -1,0 +1,12 @@
+---
+:concurrency: 3
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:queues:
+  - [carrierwave, 7]
+  - [mailer, 5]
+  - [default, 3]
+
+production:
+  :logfile: ./log/sidekiq.log
+  :concurrency: 3
