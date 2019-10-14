@@ -17,7 +17,7 @@ set :pty,  false
 set :assets_roles, [:web, :app]
 
 set :ssh_options, {
-#    keys: %w(/home/ec2/skill_test.pem),
+#    keys: %w(/home/sathishkumar/.ssh/id_rsa),
     forward_agent: true,
     auth_methods: ["publickey"],
     keys: ["/home/sathishkumar/bru.pem"]
