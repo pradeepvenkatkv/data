@@ -17,10 +17,10 @@ set :pty,  false
 set :assets_roles, [:web, :app]
 
 set :ssh_options, {
-#    keys: %w(/home/sathishkumar/.ssh/id_rsa),
+    keys: %w(/home/sathishkumar/.ssh/id_rsa),
     forward_agent: true,
     auth_methods: ["publickey"],
-    keys: ["/home/sathishkumar/bru.pem"]
+    # keys: ["/home/sathishkumar/bru.pem"]
     #auth_methods: %w(password)
 }
 role :ubuntu, "ubuntu@3.19.228.79"
