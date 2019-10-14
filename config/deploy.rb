@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.10.1"
+lock "~> 3.6.1"
 
 set :application, 'data'
 set :repo_url, 'git@github.com:pradeepvenkatkv/data.git'
@@ -34,10 +34,10 @@ set :assets_roles, [:web, :app]
 #set :rvm_path, '/usr/share/rvm/rubies/ruby-2.2.2/bin/ruby'
 
 set :ssh_options, {
-    keys: %w(/home/sathishkumar/.ssh/id_rsa),
+    # keys: %w(/home/sathishkumar/.ssh/id_rsa),
     forward_agent: true,
     auth_methods: ["publickey"],
-    #keys: ["/home/pradeep/skill_test.pem"]
+    keys: ["/home/sathishkumar/bru.pem"]
     #auth_methods: %w(password)
 }
 role :jobon_new_deploy, "jobon_new_deploy@3.19.228.79"
