@@ -5,7 +5,7 @@ require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/puma'
-require 'capistrano/sidekiq'
+# require 'capistrano/sidekiq'
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 # Include tasks from other gems included in your Gemfile
