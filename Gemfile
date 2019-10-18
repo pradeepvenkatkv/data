@@ -10,7 +10,6 @@ gem 'mongoid', '~> 4.0.0'
 gem 'bson_ext'
 gem 'mongoid_slug', '~> 3.2.1'
 
-gem 'puma'
 #User Auth
 gem 'devise', '~> 3.3.0'
 gem 'devise-async', '~> 0.9.0'
@@ -55,6 +54,10 @@ group :development do
   gem 'spring'
   gem 'unicorn'
 
+end
+
+group :production do
+  gem 'puma'
 end
 
 
