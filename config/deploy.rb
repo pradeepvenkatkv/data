@@ -4,7 +4,7 @@ set :repo_url,'https://github.com/pradeepvenkatkv/data.git'
 
 
 
-set :deploy_to, '/home/ubuntu/lotuspay'
+set :deploy_to, '/home/ubuntu/my_verified_store'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :scm, :git
 set :user, "ubuntu"
