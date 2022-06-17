@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/apai4/mongoid_token.git
+  remote: https://github.com/apai4/mongoid_token.git
   revision: 4b3d522dd06af1657dd5b7692170d6880894aded
   specs:
     mongoid_token (2.0.0)
@@ -80,6 +80,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    concurrent-ruby (1.1.10)
     connection_pool (2.2.0)
     countries (1.2.5)
       currencies (~> 0.4.2)
@@ -113,7 +114,8 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     i18n_data (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
