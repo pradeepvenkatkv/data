@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/apai4/mongoid_token.git
+  remote: https://github.com/apai4/mongoid_token.git
   revision: 4b3d522dd06af1657dd5b7692170d6880894aded
   specs:
     mongoid_token (2.0.0)
@@ -237,7 +237,7 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     tilt (1.4.1)
     timers (1.1.0)
     treetop (1.4.15)
@@ -246,7 +246,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
-    tzinfo (1.2.2)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
