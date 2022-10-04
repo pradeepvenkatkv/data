@@ -39,7 +39,7 @@ gem 'mongoid_token', github: 'apai4/mongoid_token'
 gem 'sidekiq', '~> 3.2.5'
 gem 'sidekiq-scheduler', '~> 1.0'
 
-gem "rest-client", "~> 1.6.7"
+gem "rest-client", "~> 1.8.0"
 
 group :development do
   gem 'capistrano', require: false

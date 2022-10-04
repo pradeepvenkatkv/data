@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/apai4/mongoid_token.git
+  remote: https://github.com/apai4/mongoid_token.git
   revision: 4b3d522dd06af1657dd5b7692170d6880894aded
   specs:
     mongoid_token (2.0.0)
@@ -93,6 +93,8 @@ GEM
       warden (~> 1.2.3)
     devise-async (0.9.0)
       devise (~> 3.2)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.11.1)
@@ -113,6 +115,8 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     i18n_data (0.7.0)
     jbuilder (2.6.0)
@@ -152,6 +156,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
+    netrc (0.11.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     optionable (0.2.0)
@@ -188,8 +193,10 @@ GEM
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     ref (2.0.0)
-    rest-client (1.6.9)
-      mime-types (~> 1.16)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     ruby_parser (3.8.3)
       sexp_processor (~> 4.1)
     rufus-scheduler (3.1.10)
@@ -250,6 +257,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     unicorn (5.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -290,7 +300,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.5)
   rails_layout
-  rest-client (~> 1.6.7)
+  rest-client (~> 1.8.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   sidekiq (~> 3.2.5)
